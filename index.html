@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SanoAnaliz</title>
+  <style>
+    body { background-color: #111; color: #eee; font-family: sans-serif; text-align: center; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    .panel { background: #222; padding: 20px; border-radius: 10px; display: inline-block; }
+  </style>
+</head>
+<body>
+  <h1>SanoAnaliz ⚽</h1>
+  <p>Maç ismini gir: Örn. "Cerro Largo - Montevideo"</p>
+  <input type="text" id="matchInput" placeholder="Maç ismi">
+  <button onclick="analyze()">Analiz Et</button>
+  <div class="panel" id="resultPanel"></div>
+
+  <script>
+    function analyze() {
+      const match = document.getElementById("matchInput").value;
+      const result = `
+        <h2>Analiz Sonucu</h2>
+        <p><strong>HT Tahmini:</strong> ${match.includes("Cerro") ? "Cerro Largo önde" : "Beraberlik"}</p>
+        <p><strong>FT Tahmini:</strong> ${match.includes("Cerro") ? "Cerro Largo kazanır" : "Beraberlik"}</p>
+        <p><strong>Güven Skoru:</strong> %78</p>
+        <p><strong>Bahis Önerisi:</strong> HT/FT: 1/1 – FT: 1</p>
+      `;
+      document.getElementById("resultPanel").innerHTML = result;
+    }
+  </script>
+</body>
+</html>
